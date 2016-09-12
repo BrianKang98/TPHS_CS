@@ -10,6 +10,8 @@ public class Lab_02
 		int n4=6;
 		System.out.println("5 multiplied by 6 is "+ n3*n4);
 		
-		String first=
+		String fst= "Carmel Creek Rd Unit 8 ";
+		String scnd= "San Diego CA 92130";
+		System.out.println (fst+scnd);
 	}
 }
