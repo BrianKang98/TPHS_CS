@@ -12,6 +12,11 @@ public class Lab_02
 		
 		String fst= "Carmel Creek Rd Unit 8 ";
 		String scnd= "San Diego CA 92130";
-		System.out.println (fst+scnd);
+		System.out.println(fst+scnd);
+		
+		int length=1;
+		int height=13;
+		int width=4;
+		System.out.println("The surface area of your rectangle is "+length*height*width);
 	}
 }
