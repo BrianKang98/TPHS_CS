@@ -14,9 +14,10 @@ public class Lab_02
 		String scnd= "San Diego CA 92130";
 		System.out.println(fst+scnd);
 		
-		int length=1;
-		int height=13;
-		int width=4;
-		System.out.println("The surface area of your rectangle is "+length*height*width);
+		int l=2;
+		int h=3;
+		int w=4;
+		int SA=2*l*w+2*l*h+2*w*h;
+		System.out.println("The surface area of your rectangle is "+SA);
 	}
 }
