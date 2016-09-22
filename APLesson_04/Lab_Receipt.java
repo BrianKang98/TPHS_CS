@@ -24,16 +24,21 @@ public class Lab_Receipt
 		System.out.println("Please enter the price: ");
 		double price3 = kb.nextDouble();
 		
-		String subtotal = price1+price2+price3;
+		double subtotal = price1+price2+price3;
+
+		double tax = 0.08*(subtotal);
+
+		double total = subtotal+tax;
 		
-		String tax = 0.08*(subtotal);
-		
-		String total = subtotal+tax
-		
-		System.out.println("<<<<<<<<<<__Receipt__>>>>>>>>>>");
+		System.out.println("<<<<<<<<<<<<<<<__Receipt__>>>>>>>>>>>>>>>");
 		receipt.format(item1, price1);
 		receipt.format(item2, price2);
 		receipt.format(item3, price3);
+		System.out.println(" ");
+		receipt.format("Subtotal:", subtotal);
+		receipt.format("Tax:", tax);
+		receipt.format("Total:", total);
+		
 		
 		
 		System.out.println("\n__________________________________________"+"\n* Thank you for your support *");
