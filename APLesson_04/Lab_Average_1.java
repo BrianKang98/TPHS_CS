@@ -1,32 +1,24 @@
 import java.util.Scanner;
 public class Lab_Average_1 
 {
-	static double b;
-	static double c;
-	static double d;
-	static double a;
-	
 	public static void main(String[]args)
-	
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("What is the first number?");
-		b = kb.nextInt();
+		double b = kb.nextDouble();
 		System.out.println("What is the next number?");
-		c = kb.nextInt();
+		double c = kb.nextDouble();
 		System.out.println("What is the last number?");
-		d = kb.nextInt();
-		calcAvg();
-		print();
-		
+		double d = kb.nextDouble();
+		print(calcAvg(b,c,d));
 	}
-	public static void calcAvg()
+	public static double calcAvg(double b, double c, double d)
 	{
-		a = (b + c +d )/3;
+		return (b+c+d)/3;
 	}
 	
-	public static void print()
+	public static void print(double average)
 	{
-		System.out.println("Your average is " + a + " .");
+		System.out.println("Your average is " + average + " .");
 	}
 }

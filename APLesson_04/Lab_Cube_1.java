@@ -1,29 +1,19 @@
 import java.util.Scanner;
 public class Lab_Cube_1
 {
-	
-	static double s;
-	static double sa;
-	
-	
 	public static void main(String[]args)
-	
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("What is the side length?");
-		s = kb.nextInt();
-		
-		
-		calcArea();
-		print();
-		
+		int s = kb.nextInt();
+		print(calcSurf(s));
 	}
-	public static void calcArea()
+	public static int calcSurf(int s)
 	{
-		sa = (s*s)*6;
+		return 6*s*s;
 	}
 	
-	public static void print()
+	public static void print(int sa)
 	{
 		System.out.println("Your surface area is " + sa + " feet.");
 	}

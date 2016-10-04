@@ -1,30 +1,23 @@
 import java.util.Scanner;
 public class Lab_Rectangle_1
 {
-	
-	static double l;
-	static double w;
-	static double p;
-	
-	public static void main(String[]args)
-	
+	public static void main (String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
 		System.out.println("What is the length?");
-		l = kb.nextInt();
+		int l = kb.nextInt();
 		System.out.println("What is the width?");
-		w = kb.nextInt();
-		calcPerim();
-		print();
-		
-	}
-	public static void calcPerim()
-	{
-		p = (2*l + 2*w);
+		int w = kb.nextInt();
+		print(calcPerim(l,w));
 	}
 	
-	public static void print()
+	public static int calcPerim(int l, int w)
 	{
-		System.out.println("Your rectangle is " + p + " feet around.");
+		return 2*l+2*w;
+	}
+	
+	public static void print(int perimeter)
+	{
+		System.out.println("Your rectangle is " + perimeter + " feet around.");
 	}
 }
