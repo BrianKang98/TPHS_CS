@@ -1,10 +1,19 @@
-import java.util.Random;
+import java.util.Scanner;
 public class Lesson_05
 {
 	public static void main(String[]args)
 	{
-		Random rand = new Random();
-		int num = rand.nextInt(4)+1;
-		System.out.println(num);
+		Scanner kb = new Scanner(System.in);
+		System.out.println("Please enter number 1: ");
+		int one = kb.nextInt();
+		System.out.println("Please enter number 2: ");
+		int two = kb.nextInt();
+		
+		boolean even = (one + two) % 2 == 0;
+		
+		if (even)
+			System.out.println("Your number " + (one + two) + " is even.");
+		if (!even)
+			System.out.println("Your number " + (one + two) + " is odd.");
 	}
 }
