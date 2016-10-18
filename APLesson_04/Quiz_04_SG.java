@@ -14,17 +14,10 @@ public class Quiz_04_SG
 		String item2 = kb.nextLine();
 		System.out.println("Please enter the price of your second item.");
 		double price2 = kb.nextDouble();
-		kb.nextLine();
-		
-		System.out.println("Please enter your third item.");
-		String item3 = kb.nextLine();
-		System.out.println("Please enter the price of your third item.");
-		double price3 = kb.nextDouble();
 		
 		System.out.println("<<<<<<<<<<<<<<<__Receipt__>>>>>>>>>>>>>>>");
 		format(item1, price1);
 		format(item2, price2);
-		format(item3, price3);
 		System.out.println("\n__________________________________________"+"\n* Thank you for your support *");
 	}
 	
