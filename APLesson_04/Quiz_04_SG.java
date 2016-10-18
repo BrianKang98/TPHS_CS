@@ -4,17 +4,32 @@ public class Quiz_04_SG
 	public static void main(String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
-		System.out.println("What is the side length?");
-		int side = kb.nextInt();
-		surfPrint(side);
-	}
-	public static double calcSurf(int side)
-	{
-		return 6*(Math.pow(side,2));
+		System.out.println("Please enter your first item.");
+		String item1 = kb.nextLine();
+		System.out.println("Please enter the price of your first item.");
+		double price1 = kb.nextDouble();
+		kb.nextLine();
+		
+		System.out.println("Please enter your second item.");
+		String item2 = kb.nextLine();
+		System.out.println("Please enter the price of your second item.");
+		double price2 = kb.nextDouble();
+		kb.nextLine();
+		
+		System.out.println("Please enter your third item.");
+		String item3 = kb.nextLine();
+		System.out.println("Please enter the price of your third item.");
+		double price3 = kb.nextDouble();
+		
+		System.out.println("<<<<<<<<<<<<<<<__Receipt__>>>>>>>>>>>>>>>");
+		format(item1, price1);
+		format(item2, price2);
+		format(item3, price3);
+		System.out.println("\n__________________________________________"+"\n* Thank you for your support *");
 	}
 	
-	public static void surfPrint(int side)
+	public static void format(String item, double price)
 	{
-		System.out.printf("The surface area of your cube is %.5f inches.", calcSurf(side));
+		System.out.printf("\n%15s . . . . . . . . . $%.2f", item,price);
 	}
 }
