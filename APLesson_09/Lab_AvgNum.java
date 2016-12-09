@@ -20,13 +20,13 @@ public class Lab_AvgNum
 		System.out.println("The average of the above numbers is... " + average(numbers));
 	}
 	
-	public static int average(int[] nums)
+	public static double average(int[] nums)
 	{
 		double avg = 0;
-		for(int num : nums)
+		for(double num : nums)
 		{
-			num += avg
+			avg += num;
 		}
-		return avg/num
+		return avg/nums.length;
 	}
 }	
