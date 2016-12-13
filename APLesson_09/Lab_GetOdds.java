@@ -5,33 +5,36 @@ public class Lab_GetOdds
 	{
 		int[] numbers = new int[10];
 		fillArray(numbers);
-		System.out.println("For the following numbers... " + printArray(numbers));
+		System.out.println("For the following numbers... ");
+		printArray(numbers);
 		System.out.println("The " + getOdds(numbers) + " are odd numbers.");
 	}
 	
-	public static void fillArray(int[] numbers)
+	public static void fillArray(int[] number)
 	{
-		for(int i = 0; i < numbers.length; i++)
+		for(int i = 0; i < number.length; i++)
 		{
-			numbers[i] = (int)(Math.random() * 100) + 1;
+			number[i] = (int)(Math.random() * 100) + 1;
 		}
 	}
 	
-	public static int printArray(int[] numbers)
+	public static void printArray(int[] number)
 	{
-		for(int print : numbers)
+		for(int print : number)
 		{
-			System.out.println(print + " ");
+			System.out.print(print + " ");
 		}
 	}
 	
-	public static int getOdds(int[] numbers)
+	public static int getOdds(int[] number)
 	{
-		String odds;
-		for(int num : numbers)
+		int odds=0;
+		for(int num : number)
 		{
-			if (num%2 == 1)
-			odds += num;
+			if (num%2 == 0)
+			{
+				odds++;
+			}		
 		}
 		return odds;
 	}
