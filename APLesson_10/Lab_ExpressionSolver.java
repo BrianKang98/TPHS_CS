@@ -1,53 +1,50 @@
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Lab_ExpressionSolver
 {
 	public static void main(String[]args)
 	{
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Enter the equation to be solved:");
-		String eq = kb.nextLine();
-		ArrayList <String> equation = new ArrayList <String> (Arrays.asList(eq.split(" ")));
-		solveEquatiion(equation);
+		System.out.println("Please enter an equation: ");
+		String expression = kb.nextLine();
+		
+		ArrayList<String> equation = new ArrayList<>(Arrays.asList(expression.split(" ")));
+		System.out.print(doEquation(equation));
 	}
 	
-	public static void solveEquatiion(ArrayList <String> solve)
+	public static ArrayList<String> doEquation(ArrayList<String> equation)
 	{
-		for(int i = 1; i < solve.size(); i++)
+		int i = 0;
+		while(i < equation.size())
 		{
-			if (solve.get(i).equals("-"))
+			if(equation.get(i).equals("+"))
 			{
-				Integer num = Integer.parseInt(solve.get(i-1)) - Integer.parseInt(solve.get(i+1));
-				solve.set(i, " " + num + " ");
-				solve.remove(i-1);
-				solve.remove(i);
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
+				equation.remove(i-1);
+				equation.remove(i);
 			}
-			
-			else if (solve.get(i).equals("+"))
+			else if(equation.get(i).equals("-"))
 			{
-				Integer num = Integer.parseInt(solve.get(i-1)) + Integer.parseInt(solve.get(i+1));
-				solve.set(i, " " + num + " ");
-				solve.remove(i-1);
-				solve.remove(i);
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) - Integer.parseInt(equation.get(i+1))));
+				equation.remove(i-1);
+				equation.remove(i);
 			}
-			
-			else if (solve.get(i).equals("*"))
+			else if(equation.get(i).equals("*"))
 			{
-				Integer num = Integer.parseInt(solve.get(i-1)) * Integer.parseInt(solve.get(i+1));
-				solve.set(i, " " + num + " ");
-				solve.remove(i-1);
-				solve.remove(i);
-			}
-			
-			else if (solve.get(i).equals("/"))
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) * Integer.parseInt(equation.get(i+1))));
+				equation.remove(i-1);
+				equation.remove(i);
+			}	
+			else if(equation.get(i).equals("/"))
 			{
-				Integer num = Integer.parseInt(solve.get(i-1)) / Integer.parseInt(solve.get(i+1));
-				solve.set(i, " " + num + " ");
-				solve.remove(i-1);
-				solve.remove(i);
+				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) / Integer.parseInt(equation.get(i+1))));
+				equation.remove(i-1);
+				equation.remove(i);
 			}
+			i++;
 		}
-		System.out.println("The answer is " + solve);
+		return equation;
 	}
 }
