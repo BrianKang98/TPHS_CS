@@ -10,40 +10,51 @@ public class Lab_ExpressionSolver
 		System.out.println("Please enter an equation: ");
 		String expression = kb.nextLine();
 		
-		ArrayList<String> equation = new ArrayList<>(Arrays.asList(expression.split(" ")));
+		ArrayList<String> equation = new ArrayList<>(Arrays.asList(expression.split("")));
 		System.out.print(doEquation(equation));
 	}
 	
-	public static ArrayList<String> doEquation(ArrayList<String> equation)
+	public static ArrayList doEquation(ArrayList<String> equation)
 	{
-		int i = 0;
-		while(i < equation.size())
+		while(equation.size()>1)
 		{
-			if(equation.get(i).equals("+"))
+			int i=0;
+			while(i<equation.size())
 			{
-				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) + Integer.parseInt(equation.get(i+1))));
-				equation.remove(i-1);
-				equation.remove(i);
+				if(equation.get(i).equals("*") || equation.get(i).equals("/"))
+				{
+					if(equation.get(i).equals("*"))
+					{
+						equation.set(i, Integer.toString((Integer.parseInt(equation.get(i-1))*Integer.parseInt(equation.get(i+1)))));
+					}
+					else 
+					{
+						equation.set(i, Integer.toString((Integer.parseInt(equation.get(i-1))/Integer.parseInt(equation.get(i+1)))));
+					}
+					equation.remove(i-1);
+					equation.remove(i);
+				}
+				i++;
 			}
-			else if(equation.get(i).equals("-"))
+			i=0;
+			
+			while(i<equation.size())
 			{
-				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) - Integer.parseInt(equation.get(i+1))));
-				equation.remove(i-1);
-				equation.remove(i);
+				if(equation.get(i).equals("+") || equation.get(i).equals("-"))
+				{
+					if(equation.get(i).equals("+"))
+					{
+						equation.set(i, Integer.toString((Integer.parseInt(equation.get(i-1))+Integer.parseInt(equation.get(i+1)))));
+					}
+					else 
+					{
+						equation.set(i, Integer.toString((Integer.parseInt(equation.get(i-1))-Integer.parseInt(equation.get(i+1)))));
+					}
+					equation.remove(i-1);
+					equation.remove(i);
+				}
+				i++;
 			}
-			else if(equation.get(i).equals("*"))
-			{
-				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) * Integer.parseInt(equation.get(i+1))));
-				equation.remove(i-1);
-				equation.remove(i);
-			}	
-			else if(equation.get(i).equals("/"))
-			{
-				equation.set(i, "" + (Integer.parseInt(equation.get(i-1)) / Integer.parseInt(equation.get(i+1))));
-				equation.remove(i-1);
-				equation.remove(i);
-			}
-			i++;
 		}
 		return equation;
 	}
