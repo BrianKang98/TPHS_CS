@@ -25,6 +25,8 @@ public class Satellite_1
 		   one = (double)(Math.random() * 100);
 		   two = (double)(Math.random() * 100);
 		   
+				//NOT DONE YET//
+		   
            printout += "\nLocation for " + l.getID() + ": (" + getLocation(l.getLoc()) + ")";
        }
 
@@ -32,6 +34,7 @@ public class Satellite_1
        printout += "\n\n" + "==========================" +
                    "\nDistance from home...";
 
+		   	//NOT DONE YET//
 
        for (Location l : locate)
        {
@@ -42,6 +45,7 @@ public class Satellite_1
        System.out.println(printout);
    }
 
+   	//NOT DONE YET//
 
    public static double getDistance(double[] car, double[] home)
    {
