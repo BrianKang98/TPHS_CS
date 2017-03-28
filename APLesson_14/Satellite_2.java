@@ -1,55 +1,47 @@
 import java.util.ArrayList;
-public class satellite
+public class Satellite_2
 {
 	private static double one, two;
 	
    public static void main(String[]args)
    {
-       ArrayList<location> locate = new ArrayList<>();
+       ArrayList<Location> locate = new ArrayList<>();
        double[] honLoc = {5, 6};
-       locate.add(new honda(honLoc));
-       locate.add(new toyota("8, 9"));
-       locate.add(new gmc(3, 8));
+       locate.add(new Honda(honLoc));
+       locate.add(new Toyota("8, 9"));
+       locate.add(new GMC(3, 8));
 
        double[] home = {0, 0};
 
        String printout = "\n\n" +
                "==========================" + "\nStarting locations...";
-
-
-       for (location l : locate)
+			   
+       for (Location l : locate)
        {   
-		one = (double)((Math.random()) * 100);
-		two = (double)((Math.random()) * 100);
+			one = (double)((Math.random()) * 100);
+			two = (double)((Math.random()) * 100);
 		
-		String sf1 = String.format("%.2f" , one );
-		String sf2 = String.format("%.2f", two);
+			String f1 = String.format("%.2f" , one );
+			String f2 = String.format("%.2f", two);
 		
-		
-           printout += "\n After " + l.getID() + " moved ("+ sf1+  ", " + sf2 + ") \n New Location: ("+ getLocation(l.getLoc()) + ")";
+           printout += "\n After " + l.getID() + " moved ("+ f1+  ", " + f2 + ") \n New Location: ("+ getLocation(l.getLoc()) + ")";
        }
-
 
        printout += "\n\n" + "==========================" +
                    "\nDistance from home...";
 
-
-       for (location l : locate)
-		  
+       for (Location l : locate)  
        {
            printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc())+ ")";
        }
 
-
        System.out.println(printout);
    }
-
 
    public static double getDistance(double[] loc)
    {
        return Math.sqrt((Math.pow(loc[0]+one, 2)+ Math.pow(loc[1]+two, 2)));
    }
-
 
    public static String getLocation(double[] loc)
    {
