@@ -1,15 +1,17 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Honda_2 extends Car_2
+public class Toyota extends Car
 {
-	private double[] Location;
+	private double[] locate;
 	private double x;
 	private double y;
 	
-	public Honda_2(double[] z)
+	public Toyota(String z)
 	{
-		Location = z;
+		String[] locate = z.split(", ");
+		x = Double.parseDouble(locate[0]);
+		y = Double.parseDouble(locate[1]);
 	}
 	
 	public int getID()
@@ -25,6 +27,7 @@ public class Honda_2 extends Car_2
 	
 	public double[] getLoc()
 	{
-		return Location;
+		double[] locate = {x,y};
+		return locate;
 	}
 }

@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public abstract class Car_2 implements Location_2
+public abstract class Car implements Location
 {
-	double[] Location_2;
+	double[] Location;
 	
-	public Car_2()
+	public Car()
 	{
-		Location_2 = new double[2];
+		Location = new double[2];
 	}
 	
 	public int getID()
@@ -15,7 +15,7 @@ public abstract class Car_2 implements Location_2
 		return (int)(Math.random() * 1000000);
 	}
 	
-	public abstract void move(double nx, double ny);
+	public abstract void move(double one, double two);
 	
 	public abstract double[] getLoc();
 }

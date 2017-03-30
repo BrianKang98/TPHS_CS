@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Satellite_2
+public class Satellite
 {
 	private static double one, two;
 	
@@ -24,7 +24,7 @@ public class Satellite_2
 			String f1 = String.format("%.2f" , one );
 			String f2 = String.format("%.2f", two);
 		
-           printout += "\n After " + l.getID() + " moved ("+ f1+  ", " + f2 + ") \n New Location: ("+ getLocation(l.getLoc()) + ")";
+           printout += "\n After " + l.getID() + " moved (" + f1 +  ", " + f2 + ") \n New Location: (" + getLocation(l.getLoc()) + ")";
        }
 
        printout += "\n\n" + "==========================" +
@@ -32,7 +32,7 @@ public class Satellite_2
 
        for (Location l : locate)  
        {
-           printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc())+ ")";
+           printout += "\nDistance for " + l.getID() + ": (" + getDistance(l.getLoc()) + ")";
        }
 
        System.out.println(printout);
@@ -40,11 +40,11 @@ public class Satellite_2
 
    public static double getDistance(double[] loc)
    {
-       return Math.sqrt((Math.pow(loc[0]+one, 2)+ Math.pow(loc[1]+two, 2)));
+       return Math.sqrt((Math.pow(loc[0] + one, 2)+ Math.pow(loc[1] + two, 2)));
    }
 
    public static String getLocation(double[] loc)
    {
-       return String.format("%.2f, %.2f", loc[0]+one, loc[1]+two);
+       return String.format("%.2f, %.2f", loc[0] + one, loc[1] + two);
    }
 }

@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class GMC_2 extends Car_2
+public class Honda extends Car
 {
+	private double[] Location;
 	private double x;
 	private double y;
 	
-	public GMC_2(double nx, double ny)
+	public Honda(double[] z)
 	{
-		x = nx;
-		y= ny;
+		Location = z;
 	}
 	
 	public int getID()
@@ -17,15 +17,14 @@ public class GMC_2 extends Car_2
 		return (int)(Math.random() * 1000000);
 	}
 	
-	public void move(double nx, double ny)
+	public void move(double one, double two)
 	{
-		x += nx;
-		y += ny;
+		x += one;
+		y += two;
 	}
 	
 	public double[] getLoc()
 	{
-		double[] locate = {x,y};
-		return locate;
+		return Location;
 	}
 }
