@@ -8,8 +8,8 @@ public class GMC_1 extends Car
 	
 	public GMC_1(double nx, double ny)
 	{
-		super();
-		move(nx, ny);
+		x = nx;
+		y = ny;
 	}
 	
 	
