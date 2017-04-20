@@ -9,22 +9,8 @@ public class Toyota_1 extends Car
 	
 	public Toyota_1(double[] z)
 	{
-		Location = z;
+		super(z);
 	}
 	
-	public int getID()
-	{
-		return (int)(Math.random() * 1000000);
-	}
 	
-	public void move(double nx, double ny)
-	{
-		x += nx;
-		y += ny;
-	}
-	
-	public double[] getLoc()
-	{
-		return Location;
-	}
 }

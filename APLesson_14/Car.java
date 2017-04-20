@@ -4,10 +4,12 @@ import java.util.Arrays;
 public abstract class Car implements Location
 {
 	double[] Location;
+	double x;
+	double y;
 	
-	public Car()
+	public Car(double[] z)
 	{
-		Location = new double[2];
+		Location = z;
 	}
 	
 	public int getID()
@@ -15,7 +17,14 @@ public abstract class Car implements Location
 		return (int)(Math.random() * 1000000);
 	}
 	
-	public abstract void move(double nx, double ny);
+	public void move(double nx, double ny)
+	{
+		x += nx;
+		y += ny;
+	}
 	
-	public abstract double[] getLoc();
+	public double[] getLoc()
+	{
+		return Location;
+	}
 }

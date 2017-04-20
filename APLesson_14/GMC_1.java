@@ -8,24 +8,9 @@ public class GMC_1 extends Car
 	
 	public GMC_1(double nx, double ny)
 	{
-		x = nx;
-		y= ny;
+		super();
+		move(nx, ny);
 	}
 	
-	public int getID()
-	{
-		return (int)(Math.random() * 1000000);
-	}
 	
-	public void move(double nx, double ny)
-	{
-		x += nx;
-		y += ny;
-	}
-	
-	public double[] getLoc()
-	{
-		double[] locate = {x,y};
-		return locate;
-	}
 }
