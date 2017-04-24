@@ -1,33 +1,12 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class Toyota extends Car
+import java.util.*;
+public class Toyota extends Car 
 {
-	private double[] locate;
-	private double x;
-	private double y;
-	
-	public Toyota(String z)
+    private double x1, y1;
+    public Toyota(String pos) 
 	{
-		String[] locate = z.split(", ");
-		x = Double.parseDouble(locate[0]);
-		y = Double.parseDouble(locate[1]);
-	}
-	
-	public int getID()
-	{
-		return (int)(Math.random() * 1000000);
-	}
-	
-	public void move(double nx, double ny)
-	{
-		x += nx;
-		y += ny;
-	}
-	
-	public double[] getLoc()
-	{
-		double[] locate = {x,y};
-		return locate;
-	}
+        super();
+        ArrayList<String> position = new ArrayList<>(Arrays.asList(pos.split(", ")));
+        Double posX = Double.parseDouble(position.get(0)), posY = Double.parseDouble(position.get(1));
+        super.move(posX, posY);
+    }
 }

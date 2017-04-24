@@ -1,21 +1,26 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public abstract class Car implements Location
+import java.util.*;
+public class Car implements Location 
 {
-	double[] Location;
+	private final int ID = (int)(Math.random() * 1000000) + 100000;
+	private double[] Loc;
 	
-	public Car()
+	public Car() 
 	{
-		Location = new double[2];
+		Loc = new double[2];
 	}
 	
-	public int getID()
+	public void move(double x, double y) 
 	{
-		return (int)(Math.random() * 1000000);
+		Loc[0] += x;
+		Loc[1] += y;
+	}
+	public double[] getLoc() 
+	{
+		return Loc;
 	}
 	
-	public abstract void move(double one, double two);
-	
-	public abstract double[] getLoc();
+	public int getID() 
+	{
+		return ID;
+	}
 }

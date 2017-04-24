@@ -1,6 +1,6 @@
-public interface Location
+public interface Location 
 {
-   double[] getLoc();
-   int getID();
-   void move(double one, double two);
+    double[] getLoc();
+    int getID();
+	void move(double x, double y);
 }
