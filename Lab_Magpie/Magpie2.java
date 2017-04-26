@@ -27,7 +27,7 @@ public class Magpie2
 				|| findKeyword(statement, "dog") >= 0
 				|| findKeyword(statement, "fish") >= 0
 				|| findKeyword(statement, "turtle") >= 0) 
-				{
+		{
 					response = "Tell me more about your pet.";
 		}
 		else if (findKeyword(statement, "Robinette") >= 0) 
@@ -69,13 +69,21 @@ public class Magpie2
 		String response = "";
 		
 		if (whichResponse == 0)
+		{
 			response = "Interesting, tell me more.";
+		}	
 		else if (whichResponse == 1)
+		{
 			response = "Hmmm.";
+		}
 		else if (whichResponse == 2)
+		{
 			response = "Do you really think so?";
+		}
 		else if (whichResponse == 3)
+		{
 			response = "You don't say.";
+		}
 		return response;
 	}
 }

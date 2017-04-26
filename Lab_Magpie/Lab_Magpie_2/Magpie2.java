@@ -34,26 +34,76 @@ public class Magpie2
 		{
 			response = "He sounds like a pretty dank teacher.";
 		}
+		else if (findKeyword(statement, "I want to", 0) >= 0) 
+		{
+  			response = transformIWantToStatement(statement);
+		}
 		else 
 		{
-			response = getRandomResponse();
+  			int psn = findKeyword(statement, "you", 0);
+			if (psn >= 0 && findKeyword(statement, "me", psn) >= 0) 
+			{
+				response = transformYouMeStatement(statement);
+  			}
+  			else 
+			{
+     			response = getRandomResponse();
+  			}
 		}
 		return response;
 	}
 	
-	private boolean isLetter(String c) 
+	private String transformIWantToStatement(String statement) 
 	{
-		return (c.compareTo("a") >= 0 && c.compareTo("a") <= 25);
+  		statement = statement.trim();
+  		String lastChar = statement.substring(statement.length() - 1, statement.length());
+  		if(lastChar.equals(".") || lastChar.equals("!") || lastChar.equals("?")) 
+		{
+  			statement = statement.substring(0, statement.length() - 1);
+  		}
+  		int psn = findKeyword(statement, "I want to");
+  		String restOfStatement = statement.substring(psn + 1, statement.length());
+  		return "What would it mean to" + restOfStatement + "?";
+	}
+	
+	private String transformYouMeStatement(String statement) 
+	{
+  		statement = statement.trim();
+  		String lastChar = statement.substring(statement.length() - 1, statement.length());
+  		if(lastChar.equals(".") || lastChar.equals("!") || lastChar.equals("?")) 
+		{
+  			statement = statement.substring(0, statement.length() - 1);
+  		}
+  		int psnOfYou = findKeyword(statement, "you");
+  		int psnOfMe = findKeyword(statement, "me", psnOfYou + 3);
+  		String restOfStatement = statement.substring(psnOfYou + 3, psnOfMe);
+   		return "What makes you think that I" + restOfStatement + "you?";
 	}
 	
 	private int findKeyword(String statement, String goal, int startPos) 
 	{
-		String phrase = " " + statement.trim().toLowerCase() + " ";
-		int psn = phrase.indexOf(goal, startPos);
-		if(psn != -1 && (isLetter(phrase.substring(psn - 1, psn)) || isLetter(phrase.substring(psn + goal.length(), psn + goal.length() + 1))))
-			return findKeyword(statement, goal, psn + 1);
-		
-		return psn;
+		String phrase = statement.trim().toLowerCase();
+		goal = goal.toLowerCase();
+		int psn = phrase.indexOf(goal, startPos);;
+			while(psn >= 0) 
+			{
+				String before = " ", after = " ";
+				if(psn > 0) 
+				{
+					before = phrase.substring(psn - 1, psn);
+				}
+				if(goal.length() + psn < phrase.length()) 
+				{
+					after = phrase.substring(psn + goal.length(), psn + goal.length() + 1);
+				}
+				if(((before.compareTo("a") < 0) || (before.compareTo("z") > 0))
+					&& ((after.compareTo("a") < 0) || (after.compareTo("z") > 0))) 
+				{
+					return psn;
+				}
+				psn = phrase.indexOf(goal, psn + 1);
+			}
+		return -1;
 	}
 	
 	private int findKeyword(String statement, String goal) 
@@ -68,14 +118,22 @@ public class Magpie2
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
 		
-		if (whichResponse == 0)
+		if (whichResponse == 0) 
+		{
 			response = "Interesting, tell me more.";
-		else if (whichResponse == 1)
+		}
+		else if (whichResponse == 1) 
+		{
 			response = "Hmmm.";
-		else if (whichResponse == 2)
+		}
+		else if (whichResponse == 2) 
+		{
 			response = "Do you really think so?";
-		else if (whichResponse == 3)
+		}
+		else if (whichResponse == 3) 
+		{
 			response = "You don't say.";
+		}
 		return response;
 	}
 }
